@@ -1,0 +1,16 @@
+[
+{
+  "modid": "truefishing",
+  "name": "True Fishing",
+  "description": "True fishing for Minecraft.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["PromanSEW"],
+  "credits": "The Forge and FML guys, for making this mod",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
