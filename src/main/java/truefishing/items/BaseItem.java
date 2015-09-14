@@ -7,7 +7,8 @@ import truefishing.TrueFishing;
 
 public class BaseItem extends Item {
 	
-	public BaseItem() {
+	public BaseItem(String name) {
+		setUnlocalizedName(name);
 		setCreativeTab(TrueFishing.getCreativeTab());
 	}
 	

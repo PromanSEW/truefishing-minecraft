@@ -1,1 +1,9 @@
 itemGroup.truefishing=True Fishing
+
+item.fish.0.name=Fish
+item.fish.1.name=Crucian
+item.fish.2.name=Roach
+
+item.fishRaw.0.name=Raw fish
+item.fishRaw.1.name=Crucian (raw)
+item.fishRaw.2.name=Roach (raw)
