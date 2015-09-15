@@ -1,6 +1,6 @@
 package truefishing.tileentities;
 
-public class TileEntities {
+public class TrueFishingTileEntities {
 	
 	/** Register tile entities */
 	public static void registerTileEntities() {

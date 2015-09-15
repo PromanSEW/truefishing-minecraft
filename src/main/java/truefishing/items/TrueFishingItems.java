@@ -2,10 +2,11 @@ package truefishing.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class Items {
+public class TrueFishingItems {
 	
 	public static final ItemFish fish = new ItemFish(false);
 	public static final ItemFish fishRaw = new ItemFish(true);
+	public static final ItemUd ud = new ItemUd();
 	
 	/** Initialization */
 	public static void init() {
@@ -23,5 +24,6 @@ public class Items {
 	private static void registerFishes() {
 		GameRegistry.registerItem(fish, "fish");
 		GameRegistry.registerItem(fishRaw, "fishRaw");
+		GameRegistry.registerItem(ud, "ud");
 	}
 }

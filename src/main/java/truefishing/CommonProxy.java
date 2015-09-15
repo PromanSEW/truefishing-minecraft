@@ -1,18 +1,18 @@
 package truefishing;
 
 import cpw.mods.fml.common.event.*;
-import truefishing.blocks.Blocks;
+import truefishing.blocks.TrueFishingBlocks;
 import truefishing.handler.CraftingHandler;
-import truefishing.items.Items;
-import truefishing.tileentities.TileEntities;
+import truefishing.items.TrueFishingItems;
+import truefishing.tileentities.TrueFishingTileEntities;
 
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e) {
-		Blocks.init();
-		Items.init();
+		TrueFishingBlocks.init();
+		TrueFishingItems.init();
 		CraftingHandler.init();
-		TileEntities.registerTileEntities();
+		TrueFishingTileEntities.registerTileEntities();
 	}
 	
 	public void init(FMLInitializationEvent e) {

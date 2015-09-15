@@ -53,7 +53,7 @@ public class ItemFish extends ItemFood {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		itemIcon = reg.registerIcon(TrueFishing.RES_PREFIX + getUnwrappedName());
+		itemIcon = reg.registerIcon("minecraft:fish_cod_" + (raw ? "raw" : "cooked"));
 	}
 	
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {

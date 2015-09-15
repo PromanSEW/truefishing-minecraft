@@ -2,7 +2,7 @@ package truefishing.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class Blocks {
+public class TrueFishingBlocks {
 	
 	/** Initialization */
 	public static void init() {
