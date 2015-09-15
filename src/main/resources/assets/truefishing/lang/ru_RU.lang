@@ -1,9 +1,9 @@
 itemGroup.truefishing=Реальная Рыбалка
 
-item.fish.0.name=Рыба
-item.fish.1.name=Карась
-item.fish.2.name=Плотва
+item.fish_0.name=Рыба
+item.fish_1.name=Карась
+item.fish_2.name=Плотва
 
-item.fishRaw.0.name=Сырая рыба
-item.fishRaw.1.name=Карась (сырой)
-item.fishRaw.2.name=Плотва (сырая)
+item.fishRaw_0.name=Сырая рыба
+item.fishRaw_1.name=Карась (сырой)
+item.fishRaw_2.name=Плотва (сырая)

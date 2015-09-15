@@ -13,7 +13,7 @@ public class Items {
 	}
 	
 	public static void registerItem(BaseItem item) {
-		GameRegistry.registerItem(item, item.getUnwrappedUnlocalizedName(item.getUnlocalizedName()));
+		GameRegistry.registerItem(item, item.getUnlocalizedName());
 	}
 	
 	private static void registerItems() {
@@ -21,7 +21,7 @@ public class Items {
 	}
 	
 	private static void registerFishes() {
-		GameRegistry.registerItem(fish, "fish.0");
-		GameRegistry.registerItem(fishRaw, "fishRaw.0");
+		GameRegistry.registerItem(fish, "fish");
+		GameRegistry.registerItem(fishRaw, "fishRaw");
 	}
 }

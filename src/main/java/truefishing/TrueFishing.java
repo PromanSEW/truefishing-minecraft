@@ -19,8 +19,8 @@ public class TrueFishing {
 	@Instance(value = MODID)
 	public static TrueFishing instance;
 	
-	@SidedProxy(clientSide = MODID + ".TrueFishingClient", serverSide = MODID + ".TrueFishingCore")
-	public static TrueFishingCore core = new TrueFishingCore();
+	@SidedProxy(clientSide = MODID + ".ClientProxy", serverSide = MODID + ".ServerProxy")
+	public static CommonProxy core = new CommonProxy();
 	
 	private static CreativeTabs creativeTab = new CreativeTab();
 	
@@ -29,17 +29,17 @@ public class TrueFishing {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		core.preInit();
+		core.preInit(event);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		core.init();
+		core.init(event);
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		core.postInit();
+		core.postInit(event);
 	}
 }

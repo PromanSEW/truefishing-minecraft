@@ -8,22 +8,15 @@ import truefishing.TrueFishing;
 
 public class BaseBlock extends Block {
 	
-	protected BaseBlock(Material material) {
+	protected BaseBlock(String name, Material material) {
 		super(material);
+		setBlockName(name);
+		setBlockTextureName(TrueFishing.RES_PREFIX + name);
 		setCreativeTab(TrueFishing.getCreativeTab());
 	}
-		
-	public String getUnwrappedUnlocalizedName(String name) {
-	    return name.substring(name.indexOf(".") + 1);
-	}
 	
-	public String getUnlocalizedName() {
-		return TrueFishing.RES_PREFIX + getUnwrappedUnlocalizedName(super.getUnlocalizedName());
-	}
-		
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-	    blockIcon = iconRegister.registerIcon(TrueFishing.RES_PREFIX + 
-	    		getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+	    blockIcon = iconRegister.registerIcon(getUnlocalizedName());
 	}
 }
