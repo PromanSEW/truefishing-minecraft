@@ -4,8 +4,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Items {
 	
-	public static final Fish fish = new Fish(false);
-	public static final Fish fishRaw = new Fish(true);
+	public static final ItemFish fish = new ItemFish(false);
+	public static final ItemFish fishRaw = new ItemFish(true);
 	
 	/** Initialization */
 	public static void init() {

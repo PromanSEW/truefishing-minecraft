@@ -16,7 +16,7 @@ public class CraftingHandler {
 		int i;
 		ItemStack fish = new ItemStack(Items.fish);
 		ItemStack fishRaw = new ItemStack(Items.fishRaw);
-		for(i=0; i < Fish.COUNT; i++) {
+		for(i=0; i < ItemFish.COUNT; i++) {
 			fish.setItemDamage(i);
 			fishRaw.setItemDamage(i);
 			GameRegistry.addSmelting(fishRaw, fish, 0.1f);

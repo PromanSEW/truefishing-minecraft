@@ -15,8 +15,11 @@ public class BaseBlock extends Block {
 		setCreativeTab(TrueFishing.getCreativeTab());
 	}
 	
+	/** @return <s>tile.</s>unlocalizedName */
+	public String getUnwrappedName() { return getUnlocalizedName().substring(5); }
+	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-	    blockIcon = iconRegister.registerIcon(getUnlocalizedName());
+	    blockIcon = iconRegister.registerIcon(getUnwrappedName());
 	}
 }

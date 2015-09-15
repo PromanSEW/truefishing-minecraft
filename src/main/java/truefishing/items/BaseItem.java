@@ -11,9 +11,12 @@ public class BaseItem extends Item {
 		setUnlocalizedName(name);
 		setCreativeTab(TrueFishing.getCreativeTab());
 	}
+	
+	/** @return <s>item.</s>unlocalizedName */
+	public String getUnwrappedName() { return getUnlocalizedName().substring(5); }
 		
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-	    itemIcon = iconRegister.registerIcon("item." + TrueFishing.RES_PREFIX + getUnlocalizedName());
+	    itemIcon = iconRegister.registerIcon("item." + TrueFishing.RES_PREFIX + getUnwrappedName());
 	}
 }
