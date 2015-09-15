@@ -8,4 +8,7 @@ item.fishRaw_0.name=Raw fish
 item.fishRaw_1.name=Crucian (raw)
 item.fishRaw_2.name=Roach (raw)
 
-item.ud.name=Fishing rod
+item.hook.name=Hook
+item.line.name=Fishing line
+item.reel.name=Reel
+item.rod.name=Fishing rod

@@ -3,11 +3,11 @@ package truefishing.items;
 import net.minecraft.item.ItemFishingRod;
 import truefishing.TrueFishing;
 
-public class ItemUd extends ItemFishingRod {
+public class ItemRod extends ItemFishingRod {
 
-	public ItemUd() {
+	public ItemRod() {
 		super();
-		setUnlocalizedName("ud");
+		setUnlocalizedName("rod");
 		setTextureName("minecraft:fishing_rod");
 		setCreativeTab(TrueFishing.getCreativeTab());
 	}

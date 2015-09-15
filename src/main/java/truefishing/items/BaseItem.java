@@ -17,6 +17,6 @@ public class BaseItem extends Item {
 		
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-	    itemIcon = iconRegister.registerIcon("item." + TrueFishing.RES_PREFIX + getUnwrappedName());
+	    itemIcon = iconRegister.registerIcon(TrueFishing.RES_PREFIX + getUnwrappedName());
 	}
 }

@@ -13,12 +13,13 @@ public class CraftingHandler {
 		registerSmeltingRecipes();
 	}
 	
-	/** Register recipes */
+	/** Register crafting recipes */
 	private static void registerCraftingRecipes() {
-		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.ud), "#", "#", "#", '#', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.line), "###", "# #", "###", '#', Items.string);
+		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.rod), "#", "#", "#", '#', Items.stick);
 	}
 	
-	/** Register recipes */
+	/** Register smelting recipes */
 	private static void registerSmeltingRecipes() {
 		int i;
 		ItemStack input, output;
