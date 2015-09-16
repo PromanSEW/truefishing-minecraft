@@ -1,16 +1,9 @@
 package truefishing.items;
 
-import net.minecraft.item.ItemFishingRod;
-import truefishing.TrueFishing;
-
-public class ItemRod extends ItemFishingRod {
+public class ItemRod extends ItemStore {
 
 	public ItemRod() {
-		super();
-		setUnlocalizedName("rod");
-		setTextureName("minecraft:fishing_rod");
-		setCreativeTab(TrueFishing.getCreativeTab());
+		super("rod");
+		
 	}
-	
-	public int getItemEnchantability() { return 0; }
 }

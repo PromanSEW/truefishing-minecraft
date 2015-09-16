@@ -1,6 +1,6 @@
 package truefishing.items;
 
-public class ItemHook extends BaseItem {
+public class ItemHook extends ItemStore {
 	
 	public ItemHook() {
 		super("hook");

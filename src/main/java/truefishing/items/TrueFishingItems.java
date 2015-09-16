@@ -17,7 +17,7 @@ public class TrueFishingItems {
 	}
 	
 	public static void registerItem(BaseItem item) {
-		GameRegistry.registerItem(item, item.getUnlocalizedName());
+		GameRegistry.registerItem(item, item.getUnwrappedName());
 	}
 	
 	private static void registerItems() {
@@ -27,9 +27,9 @@ public class TrueFishingItems {
 	private static void registerFishes() {
 		GameRegistry.registerItem(fish, "fish");
 		GameRegistry.registerItem(fishRaw, "fishRaw");
-		GameRegistry.registerItem(hook, "hook");
-		GameRegistry.registerItem(line, "line");
-		GameRegistry.registerItem(reel, "reel");
-		GameRegistry.registerItem(rod, "rod");
+		registerItem(hook);
+		registerItem(line);
+		registerItem(reel);
+		registerItem(rod);
 	}
 }

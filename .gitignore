@@ -4,4 +4,6 @@ eclipse
 .gradle
 .settings
 /build/
+buildmod
+runclient
 Thumbs.db
