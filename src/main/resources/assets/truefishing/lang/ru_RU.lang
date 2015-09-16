@@ -3,14 +3,20 @@ itemGroup.truefishing=Реальная Рыбалка
 item.fish_0.name=Рыба
 item.fish_1.name=Карась
 item.fish_2.name=Плотва
+item.fish_3.name=Ёрш
+item.fish_4.name=Лещ
 
 item.fishRaw_0.name=Сырая рыба
 item.fishRaw_1.name=Карась (сырой)
 item.fishRaw_2.name=Плотва (сырая)
+item.fishRaw_3.name=Ёрш (сырой)
+item.fishRaw_4.name=Лещ (сырой)
 
 item.bait_0.name=Наживка
 item.bait_1.name=Червь
+item.bait_2.name=Тесто
 
+item.flour.name=Мука
 item.hook.name=Крючок
 item.line.name=Леска
 item.reel.name=Катушка

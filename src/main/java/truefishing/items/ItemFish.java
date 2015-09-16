@@ -19,7 +19,7 @@ public class ItemFish extends ItemFood {
 
 	private boolean raw;
 	private boolean poison = false;
-	public static final int COUNT = 3;
+	public static final int COUNT = 5;
 	
 	public ItemFish(boolean raw) {
 		super(5, false);
