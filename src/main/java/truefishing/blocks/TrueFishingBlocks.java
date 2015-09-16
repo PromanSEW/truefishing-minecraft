@@ -11,6 +11,6 @@ public class TrueFishingBlocks {
 	
 	/** Register {@code block} */
 	public static void register(BaseBlock block) {
-	    GameRegistry.registerBlock(block, block.getUnlocalizedName());
+	    GameRegistry.registerBlock(block, block.getUnwrappedName());
 	}
 }

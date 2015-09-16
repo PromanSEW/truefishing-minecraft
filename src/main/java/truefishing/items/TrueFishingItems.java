@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TrueFishingItems {
 	
+	public static final ItemBait bait = new ItemBait();
 	public static final ItemFish fish = new ItemFish(false);
 	public static final ItemFish fishRaw = new ItemFish(true);
 	public static final ItemHook hook = new ItemHook();
@@ -27,6 +28,7 @@ public class TrueFishingItems {
 	private static void registerFishes() {
 		GameRegistry.registerItem(fish, "fish");
 		GameRegistry.registerItem(fishRaw, "fishRaw");
+		registerItem(bait);
 		registerItem(hook);
 		registerItem(line);
 		registerItem(reel);
