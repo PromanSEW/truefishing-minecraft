@@ -98,7 +98,6 @@ public class Inventory implements IInventory {
 			if(getStackInSlot(i) != null) {
 				NBTTagCompound compound1 = new NBTTagCompound();
 				compound1.setInteger("Slot", i);
-				// Writes the itemstack in slot(i) to the Tag Compound we just made
 				getStackInSlot(i).writeToNBT(compound1);
 				list.appendTag(compound1);
 			}

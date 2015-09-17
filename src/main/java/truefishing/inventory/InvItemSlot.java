@@ -5,9 +5,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import truefishing.items.InventoryItem;
 
-public class SlotItemInv extends Slot {
+public class InvItemSlot extends Slot {
 
-	public SlotItemInv(IInventory inv, int index, int x, int y) {
+	public InvItemSlot(IInventory inv, int index, int x, int y) {
 		super(inv, index, x, y);
 	}
 	
