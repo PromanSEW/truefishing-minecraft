@@ -7,15 +7,15 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import truefishing.items.ItemStore;
+import truefishing.items.InventoryItem;
 
-public class InventoryItem implements IInventory {
+public class Inventory implements IInventory {
 	
 	public static final int INV_SIZE = 5;
 	private ItemStack[] inv = new ItemStack[INV_SIZE];
 	protected String uniqueID;
 	
-	public InventoryItem(ItemStack stack) {
+	public Inventory(ItemStack stack) {
 		uniqueID = "";
 		if(!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
@@ -74,7 +74,7 @@ public class InventoryItem implements IInventory {
 	public void closeInventory() {}
 	
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
-		return !(stack.getItem() instanceof ItemStore);
+		return !(stack.getItem() instanceof InventoryItem);
 	}
 		
 	public void readFromNBT(NBTTagCompound compound) {

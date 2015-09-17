@@ -1,6 +1,6 @@
 package truefishing.items;
 
-public class ItemReel extends ItemStore {
+public class ItemReel extends InventoryItem {
 	
 	public ItemReel() {
 		super("reel");

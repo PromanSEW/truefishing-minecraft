@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 import truefishing.TrueFishing;
 import truefishing.inventory.ContainerItem;
 
-public class ItemStore extends BaseItem {
+public class ItemInventorySet extends BaseItem {
 
-	public ItemStore(String name) {
+	public ItemInventorySet(String name) {
 		super(name);
 		maxStackSize = 1;
 	}
@@ -21,7 +21,7 @@ public class ItemStore extends BaseItem {
 		if(!world.isRemote && entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			if(FMLClientHandler.instance().getClient().inGameHasFocus && Keyboard.isKeyDown(Keyboard.KEY_I) && 
-					player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemStore) {
+					player.getHeldItem() != null && player.getHeldItem().getItem() instanceof InventoryItem) {
 				player.openGui(TrueFishing.instance, 1, world, (int) player.posX, (int) player.posY, (int) player.posZ);
 			}
 			if(player.openContainer != null && player.openContainer instanceof ContainerItem) {

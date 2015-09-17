@@ -3,7 +3,7 @@ package truefishing.inventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import truefishing.items.ItemStore;
+import truefishing.items.InventoryItem;
 
 public class SlotItemInv extends Slot {
 
@@ -12,6 +12,6 @@ public class SlotItemInv extends Slot {
 	}
 	
 	public boolean isItemValid(ItemStack stack) {
-		return !(stack.getItem() instanceof ItemStore);
+		return !(stack.getItem() instanceof InventoryItem);
 	}
 }

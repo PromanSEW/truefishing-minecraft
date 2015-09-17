@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import truefishing.TrueFishing;
 
-public class ItemBait extends BaseItem {
+public class ItemBait extends InventoryItem {
 	
 	public static final int COUNT = 7;
 	

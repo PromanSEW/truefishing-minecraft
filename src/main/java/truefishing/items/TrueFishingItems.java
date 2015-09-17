@@ -20,7 +20,7 @@ public class TrueFishingItems {
 	}
 	
 	/** Register item */
-	public static void registerItem(BaseItem item) {
+	public static <T extends BaseItem> void registerItem(T item) {
 		GameRegistry.registerItem(item, item.getUnwrappedName());
 	}
 	

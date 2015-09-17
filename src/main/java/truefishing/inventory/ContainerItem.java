@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class ContainerItem extends Container {
 	
-	public final InventoryItem inv;
+	public final Inventory inv;
 	
 	/** Stores ItemStack that was used to open the container; used for saving to NBT
 	* Without this variable, the game will crash when GUI is open and you move the
@@ -18,17 +18,17 @@ public class ContainerItem extends Container {
 	
 	public boolean needsUpdate;
 	
-	private static final int INV_START = InventoryItem.INV_SIZE, INV_END = INV_START+26;
+	private static final int INV_START = Inventory.INV_SIZE, INV_END = INV_START+26;
 	private static final int HOTBAR_START = INV_END+1, HOTBAR_END = HOTBAR_START+8;
 	
-	public ContainerItem(EntityPlayer player, InventoryPlayer invPlayer, InventoryItem item) {
+	public ContainerItem(EntityPlayer player, InventoryPlayer invPlayer, Inventory item) {
 		inv = item;
 		containerstack = player.getHeldItem();
 		int i;
 		// ITEM INVENTORY - you'll need to adjust the slot locations to match your texture file
 		// I have them set vertically in columns of 4 to the right of the player model
 
-		for(i=0; i < InventoryItem.INV_SIZE; ++i) {
+		for(i=0; i < Inventory.INV_SIZE; ++i) {
 
 			// You can make a custom Slot if you need different behavior,
 			// such as only certain item types can be put into this slot
