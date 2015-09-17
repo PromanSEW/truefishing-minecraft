@@ -10,8 +10,8 @@ public class DropHandler {
 	
 	@SubscribeEvent
 	public void onBlockDropItems(HarvestDropsEvent event) {
-		// Drop worm from dirt and grass with 10% chance
-		if(event.block == Blocks.dirt || event.block == Blocks.grass) {
+		// Drop worm from dirt and grass with 10% chance at Y > 32
+		if((event.block == Blocks.dirt && event.y > 32) || event.block == Blocks.grass) {
 			if(Math.random() < 0.1) event.drops.add(new ItemStack(TrueFishingItems.bait, 1, 1));
 		}
 	}

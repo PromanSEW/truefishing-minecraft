@@ -9,9 +9,9 @@ import truefishing.TrueFishing;
 public class ItemPasta extends ItemFood {
 	
 	public ItemPasta() {
-		super(5, false);
+		super(3, false);
 		setUnlocalizedName("pasta");
-		setCreativeTab(TrueFishing.getCreativeTab());
+		setCreativeTab(TrueFishing.creativeTab);
 	}
 	
 	@SideOnly(Side.CLIENT)

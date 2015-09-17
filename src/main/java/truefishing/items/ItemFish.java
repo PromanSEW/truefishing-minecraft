@@ -22,11 +22,11 @@ public class ItemFish extends ItemFood {
 	public static final int COUNT = 8;
 	
 	public ItemFish(boolean raw) {
-		super(5, false);
+		super(6, false);
 		this.raw = raw;
 		setUnlocalizedName("fish" + (raw ? "Raw" : ""));
 		setHasSubtypes(true);
-		setCreativeTab(TrueFishing.getCreativeTab());
+		setCreativeTab(TrueFishing.creativeTab);
 	}
 	
 	/** @return Fish is raw or not */
@@ -66,10 +66,7 @@ public class ItemFish extends ItemFood {
     }
 	
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-		if(poison) {
-			player.addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3));
-            player.addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2));
-		}
+		if(poison) player.addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3));
     }
 	
     public int getMaxItemUseDuration(ItemStack stack) { return raw ? 0 : 32; }

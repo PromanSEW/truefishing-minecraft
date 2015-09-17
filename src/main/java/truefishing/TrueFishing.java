@@ -26,10 +26,8 @@ public class TrueFishing {
 	@SidedProxy(clientSide = MODID + ".ClientProxy", serverSide = MODID + ".ServerProxy")
 	public static CommonProxy core = new CommonProxy();
 	
-	private static CreativeTabs creativeTab = new CreativeTab();
-	
 	/** Creative tab */
-	public static CreativeTabs getCreativeTab() { return creativeTab; }
+	public static final CreativeTabs creativeTab = new CreativeTab();
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

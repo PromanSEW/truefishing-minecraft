@@ -17,9 +17,11 @@ public class CraftingHandler {
 	/** Register crafting recipes */
 	private static void registerCraftingRecipes() {
 		ItemStack input, output;
+		// Flour
 		GameRegistry.addShapelessRecipe(new ItemStack(TrueFishingItems.flour, 2), Items.wheat);
 		// Dough
-		GameRegistry.addShapelessRecipe(new ItemStack(TrueFishingItems.bait, 8, 2), 
+		output = new ItemStack(TrueFishingItems.bait, 8, 2);
+		GameRegistry.addShapelessRecipe(output, 
 				new ItemStack(Items.milk_bucket.setContainerItem(Items.bucket)), 
 				Items.egg, TrueFishingItems.flour, TrueFishingItems.flour);
 		// Live bait
@@ -31,13 +33,16 @@ public class CraftingHandler {
 		}
 		// Meat
 		output = new ItemStack(TrueFishingItems.bait, 8, 4);
-		output.stackSize = 8;
-		output.setItemDamage(4);
 		GameRegistry.addShapelessRecipe(output, Items.beef);
 		GameRegistry.addShapelessRecipe(output, Items.porkchop);
 		// Pasta
-		output.setItemDamage(5);
-		GameRegistry.addRecipe(output, "###", '#', TrueFishingItems.flour);
+		input = new ItemStack(TrueFishingItems.bait, 1, 1);
+		output = new ItemStack(TrueFishingItems.bait, 8, 5);
+		GameRegistry.addShapelessRecipe(output, input, input, input);
+		// Boiles
+		output = new ItemStack(TrueFishingItems.bait, 8, 6);
+		GameRegistry.addShapelessRecipe(output, 
+				Items.wheat_seeds, Items.sugar, TrueFishingItems.flour, Items.egg);
 		// Hook, fishing line, reel, fishing rod
 		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.hook, 8), 
 				" #", 

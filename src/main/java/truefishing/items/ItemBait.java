@@ -13,7 +13,9 @@ import truefishing.TrueFishing;
 
 public class ItemBait extends BaseItem {
 	
-	public static final int COUNT = 6;
+	public static final int COUNT = 7;
+	
+	@SideOnly(Side.CLIENT)
 	private IIcon icons[];
 	
 	public ItemBait() {

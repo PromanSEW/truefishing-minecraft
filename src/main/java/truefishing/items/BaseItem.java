@@ -10,7 +10,7 @@ public class BaseItem extends Item {
 	
 	public BaseItem(String name) {
 		setUnlocalizedName(name);
-		setCreativeTab(TrueFishing.getCreativeTab());
+		setCreativeTab(TrueFishing.creativeTab);
 	}
 	
 	/** @return <s>item.</s>unlocalizedName */

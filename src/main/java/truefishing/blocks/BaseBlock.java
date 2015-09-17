@@ -13,7 +13,7 @@ public class BaseBlock extends Block {
 		super(material);
 		setBlockName(name);
 		setBlockTextureName(TrueFishing.RES_PREFIX + name);
-		setCreativeTab(TrueFishing.getCreativeTab());
+		setCreativeTab(TrueFishing.creativeTab);
 	}
 	
 	/** @return <s>tile.</s>unlocalizedName */
