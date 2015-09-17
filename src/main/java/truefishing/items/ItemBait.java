@@ -13,7 +13,7 @@ import truefishing.TrueFishing;
 
 public class ItemBait extends BaseItem {
 	
-	public static final int COUNT = 4;
+	public static final int COUNT = 6;
 	private IIcon icons[];
 	
 	public ItemBait() {
@@ -42,7 +42,8 @@ public class ItemBait extends BaseItem {
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
 		icons = new IIcon[COUNT];
-		for(int i=0; i < COUNT; ++i) 
+		for(int i=0; i < COUNT; ++i) {
 			icons[i] = reg.registerIcon(TrueFishing.RES_PREFIX + "baits/" + getUnwrappedName() + "_" + i);
+		}
 	}
 }

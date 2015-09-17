@@ -5,20 +5,30 @@ item.fish_1.name=Crucian
 item.fish_2.name=Roach
 item.fish_3.name=Ruff
 item.fish_4.name=Bream
+item.fish_5.name=Little bream
+item.fish_6.name=Bass
+item.fish_7.name=Luce
 
 item.fishRaw_0.name=Raw fish
 item.fishRaw_1.name=Crucian (raw)
 item.fishRaw_2.name=Roach (raw)
 item.fishRaw_3.name=Ruff (raw)
 item.fishRaw_4.name=Bream (raw)
+item.fishRaw_5.name=Little bream (raw)
+item.fishRaw_6.name=Bass (raw)
+item.fishRaw_7.name=Luce (raw)
 
 item.bait_0.name=Bait
 item.bait_1.name=Worm
 item.bait_2.name=Dough
 item.bait_3.name=Live bait
+item.bait_4.name=Meat
+item.bait_5.name=Pasta
 
-item.flour.name=Flour
 item.hook.name=Hook
 item.line.name=Fishing line
 item.reel.name=Reel
 item.rod.name=Fishing rod
+
+item.flour.name=Flour
+item.pasta.name=Pasta

@@ -16,7 +16,6 @@ public class ContainerItem extends Container {
 	* ItemStore whose inventory is currently in use */
 	private final ItemStack containerstack;
 	
-	/** Set to true when contents of container have changed and need to be saved */
 	public boolean needsUpdate;
 	
 	private static final int INV_START = InventoryItem.INV_SIZE, INV_END = INV_START+26;
@@ -120,14 +119,8 @@ public class ContainerItem extends Container {
 		return stack;
 	}
 	
-	/*
-	* Vanilla mergeItemStack method doesn't correctly handle inventories whose
-	* max stack size is 1 when you shift-click into the inventory.
-	* This is a modified method I wrote to handle such cases.
-	* Note you only need it if your slot / inventory's max stack size is 1
-	*/
 	protected boolean mergeItemStack(ItemStack stack, int par2, int par3, boolean par4) {
-		boolean flag1 = false;
+		boolean flag = false;
 		int k = par2;
 		if(par4) k = par3 - 1;
 		Slot slot;
@@ -144,18 +137,18 @@ public class ContainerItem extends Container {
 						stack.stackSize = 0;
 						stack1.stackSize = l;
 						inv.markDirty();
-						flag1 = true;
+						flag = true;
 					} else if(stack1.stackSize < stack.getMaxStackSize() && l < slot.getSlotStackLimit()) {
 						stack.stackSize -= stack.getMaxStackSize() - stack1.stackSize;
 						stack1.stackSize = stack.getMaxStackSize();
 						inv.markDirty();
-						flag1 = true;
+						flag = true;
 					}
 				}
 				if(par4) --k; else ++k;
 			}
 		}
-		if (stack.stackSize > 0) {
+		if(stack.stackSize > 0) {
 			if(par4) k = par3 - 1; else k = par2;
 			while(!par4 && k < par3 || par4 && k >= par2) {
 				slot = (Slot) inventorySlots.get(k);
@@ -166,18 +159,18 @@ public class ContainerItem extends Container {
 						slot.putStack(stack.copy());
 						stack.stackSize = 0;
 						inv.markDirty();
-						flag1 = true;
+						flag = true;
 						break;
 					} else {
 						putStackInSlot(k, new ItemStack(stack.getItem(), slot.getSlotStackLimit()));
 						stack.stackSize -= slot.getSlotStackLimit();
 						inv.markDirty();
-						flag1 = true;
+						flag = true;
 					}
 				}
 				if(par4) --k; else ++k;
 			}
-		} return flag1;
+		} return flag;
 	}
 	
 	public ItemStack slotClick(int slotID, int buttonPressed, int flag, EntityPlayer player) {

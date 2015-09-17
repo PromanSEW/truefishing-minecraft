@@ -18,9 +18,10 @@ public class CraftingHandler {
 	private static void registerCraftingRecipes() {
 		ItemStack input, output;
 		GameRegistry.addShapelessRecipe(new ItemStack(TrueFishingItems.flour, 2), Items.wheat);
+		// Dough
 		GameRegistry.addShapelessRecipe(new ItemStack(TrueFishingItems.bait, 8, 2), 
 				new ItemStack(Items.milk_bucket.setContainerItem(Items.bucket)), 
-				Items.egg, TrueFishingItems.flour, TrueFishingItems.flour); // Dough
+				Items.egg, TrueFishingItems.flour, TrueFishingItems.flour);
 		// Live bait
 		input = new ItemStack(TrueFishingItems.fishRaw);
 		output = new ItemStack(TrueFishingItems.bait, 1, 3);
@@ -28,6 +29,16 @@ public class CraftingHandler {
 			input.setItemDamage(i);
 			GameRegistry.addShapelessRecipe(output, input);
 		}
+		// Meat
+		output = new ItemStack(TrueFishingItems.bait, 8, 4);
+		output.stackSize = 8;
+		output.setItemDamage(4);
+		GameRegistry.addShapelessRecipe(output, Items.beef);
+		GameRegistry.addShapelessRecipe(output, Items.porkchop);
+		// Pasta
+		output.setItemDamage(5);
+		GameRegistry.addRecipe(output, "###", '#', TrueFishingItems.flour);
+		// Hook, fishing line, reel, fishing rod
 		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.hook, 8), 
 				" #", 
 				" #", 
@@ -37,9 +48,9 @@ public class CraftingHandler {
 				"# #", 
 				"###", '#', Items.string);
 		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.rod), 
-				"#", 
-				"#", 
-				"#", '#', Items.stick);
+				"  #", 
+				" # ", 
+				"#  ", '#', Items.stick);
 	}
 	
 	/** Register smelting recipes */
@@ -54,9 +65,12 @@ public class CraftingHandler {
 			GameRegistry.addSmelting(input, output, 0.1f);
 		}
 		// Smelting dough to bread
-		input = new ItemStack(TrueFishingItems.bait);
+		input = new ItemStack(TrueFishingItems.bait, 1, 2);
 		output = new ItemStack(Items.bread);
-		input.setItemDamage(2);
+		GameRegistry.addSmelting(input, output, 0.1f);
+		// Smelting pasta
+		input.setItemDamage(5);
+		output = new ItemStack(TrueFishingItems.pasta);
 		GameRegistry.addSmelting(input, output, 0.1f);
 	}
 }

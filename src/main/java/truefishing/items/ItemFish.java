@@ -19,7 +19,7 @@ public class ItemFish extends ItemFood {
 
 	private boolean raw;
 	private boolean poison = false;
-	public static final int COUNT = 5;
+	public static final int COUNT = 8;
 	
 	public ItemFish(boolean raw) {
 		super(5, false);
@@ -53,7 +53,7 @@ public class ItemFish extends ItemFood {
 		return getUnlocalizedName() + "_" + stack.getItemDamage();
 	}
 	
-    public String getPotionEffect(ItemStack stack) { return null; }
+	public String getPotionEffect(ItemStack stack) { return null; }
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
