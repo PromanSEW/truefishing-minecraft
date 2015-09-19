@@ -12,6 +12,7 @@ public class TrueFishingItems {
 	public static final ItemPasta pasta = new ItemPasta();
 	public static final ItemReel reel = new ItemReel();
 	public static final ItemRod rod = new ItemRod();
+	public static final ItemInventorySet invset = new ItemInventorySet();
 	public static final BaseItem flour = new BaseItem("flour");
 	
 	/** Initialization */
@@ -20,7 +21,7 @@ public class TrueFishingItems {
 	}
 	
 	/** Register item */
-	public static <T extends BaseItem> void registerItem(T item) {
+	public static void registerItem(BaseItem item) {
 		GameRegistry.registerItem(item, item.getUnwrappedName());
 	}
 	
@@ -28,6 +29,7 @@ public class TrueFishingItems {
 	private static void registerItems() {
 		GameRegistry.registerItem(fish, "fish");
 		GameRegistry.registerItem(fishRaw, "fishRaw");
+		GameRegistry.registerItem(invset, "invset");
 		GameRegistry.registerItem(pasta, "pasta");
 		registerItem(bait);
 		registerItem(flour);

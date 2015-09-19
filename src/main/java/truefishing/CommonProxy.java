@@ -6,7 +6,6 @@ import truefishing.blocks.TrueFishingBlocks;
 import truefishing.handler.CraftingHandler;
 import truefishing.handler.DropHandler;
 import truefishing.items.TrueFishingItems;
-import truefishing.tileentities.TrueFishingTileEntities;
 
 public class CommonProxy {
 	
@@ -14,7 +13,6 @@ public class CommonProxy {
 		TrueFishingBlocks.init();
 		TrueFishingItems.init();
 		CraftingHandler.init();
-		TrueFishingTileEntities.registerTileEntities();
 		MinecraftForge.EVENT_BUS.register(new DropHandler());
 	}
 	

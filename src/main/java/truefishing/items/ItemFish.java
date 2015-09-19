@@ -22,7 +22,7 @@ public class ItemFish extends ItemFood {
 	public static final int COUNT = 8;
 	
 	public ItemFish(boolean raw) {
-		super(6, false);
+		super(raw ? 2 : 6, false);
 		this.raw = raw;
 		setUnlocalizedName("fish" + (raw ? "Raw" : ""));
 		setHasSubtypes(true);

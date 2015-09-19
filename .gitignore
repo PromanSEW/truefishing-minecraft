@@ -7,3 +7,4 @@ eclipse
 buildmod
 runclient
 Thumbs.db
+.DS_Store
