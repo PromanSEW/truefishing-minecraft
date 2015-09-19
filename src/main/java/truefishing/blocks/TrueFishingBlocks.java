@@ -4,8 +4,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TrueFishingBlocks {
 	
-	/** Initialization */
-	public static void init() {
+	/** Register blocks */
+	public static void registerBlocks() {
 		
 	}
 	

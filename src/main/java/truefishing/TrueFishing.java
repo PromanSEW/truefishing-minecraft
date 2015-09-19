@@ -4,12 +4,8 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.event.*;
 import net.minecraft.creativetab.CreativeTabs;
-import truefishing.handler.GUIHandler;
 
 @Mod(modid = TrueFishing.MODID, name = TrueFishing.MODNAME, version = TrueFishing.VERSION)
 public class TrueFishing {
@@ -20,7 +16,7 @@ public class TrueFishing {
 	
 	public static final String RES_PREFIX = MODID + ":";
 	
-	@Instance(value = MODID)
+	@Instance(MODID)
 	public static TrueFishing instance;
 	
 	@SidedProxy(clientSide = MODID + ".ClientProxy", serverSide = MODID + ".ServerProxy")
@@ -37,7 +33,6 @@ public class TrueFishing {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		core.init(event);
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
 	}
 	
 	@EventHandler

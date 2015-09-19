@@ -15,18 +15,13 @@ public class TrueFishingItems {
 	public static final ItemInventorySet invset = new ItemInventorySet();
 	public static final BaseItem flour = new BaseItem("flour");
 	
-	/** Initialization */
-	public static void init() {
-		registerItems();
-	}
-	
 	/** Register item */
 	public static void registerItem(BaseItem item) {
 		GameRegistry.registerItem(item, item.getUnwrappedName());
 	}
 	
 	/** Register items */
-	private static void registerItems() {
+	public static void registerItems() {
 		GameRegistry.registerItem(fish, "fish");
 		GameRegistry.registerItem(fishRaw, "fishRaw");
 		GameRegistry.registerItem(invset, "invset");

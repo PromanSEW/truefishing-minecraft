@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import truefishing.TrueFishing;
 import truefishing.inventory.ContainerItem;
-import truefishing.tileentities.EntityFishingHook;
+import truefishing.entity.EntityFishingHook;
 
 public class ItemInventorySet extends ItemFishingRod {
 
