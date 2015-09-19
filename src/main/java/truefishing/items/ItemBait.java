@@ -6,14 +6,17 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import truefishing.TrueFishing;
 
 public class ItemBait extends InventoryItem {
 	
-	public static final int COUNT = 7;
+	public static final int COUNT = 9;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon icons[];
@@ -24,6 +27,45 @@ public class ItemBait extends InventoryItem {
 	}
 	
 	public int getMetadata(int meta) { return meta; }
+	
+	public int getMaxItemUseDuration(ItemStack stack) {
+		switch(stack.getItemDamage()) {
+		case 7: // Peas
+		case 8: // Cheese
+			return 32;
+		} return 0;
+	}
+	
+	public EnumAction getItemUseAction(ItemStack stack) {
+		switch(stack.getItemDamage()) {
+		case 7: // Peas
+		case 8: // Cheese
+			return EnumAction.eat;
+		default: return EnumAction.none;
+		}
+	}
+	
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		switch(stack.getItemDamage()) {
+		case 7: // Peas
+		case 8: // Cheese
+			if(player.canEat(false)) player.setItemInUse(stack, getMaxItemUseDuration(stack));
+		} return stack;
+	}
+	
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+		switch(stack.getItemDamage()) {
+		case 7: return onFoodEaten(3, 0.8f, stack, world, player); // Peas
+		case 8: return onFoodEaten(2, 0.2f, stack, world, player); // Cheese
+		} return stack;
+	}
+	
+	private ItemStack onFoodEaten(int heal, float saturation, ItemStack stack, World world, EntityPlayer player) {
+		--stack.stackSize;
+        player.getFoodStats().addStats(heal, saturation);
+        world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+        return stack;
+	}
 	
 	@SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int meta) {

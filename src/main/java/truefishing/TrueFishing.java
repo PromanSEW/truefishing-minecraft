@@ -6,6 +6,8 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 
 @Mod(modid = TrueFishing.MODID, name = TrueFishing.MODNAME, version = TrueFishing.VERSION)
 public class TrueFishing {
@@ -23,7 +25,9 @@ public class TrueFishing {
 	public static CommonProxy core = new CommonProxy();
 	
 	/** Creative tab */
-	public static final CreativeTabs creativeTab = new CreativeTab();
+	public static final CreativeTabs creativeTab = new CreativeTabs(TrueFishing.MODID) {
+		public Item getTabIconItem() { return Items.fish; }
+	};
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

@@ -18,13 +18,12 @@ public class EntityFishingHook extends EntityFishHook implements IEntityAddition
 		this.bait = bait;
 	}
 	
-	
 	public void onUpdate() {
 		super.onUpdate();
 	}
 	
-	public void writeSpawnData(ByteBuf buffer) {
-		buffer.writeInt(field_146042_b != null ? field_146042_b.getEntityId() : 0);
+	public void writeSpawnData(ByteBuf data) {
+		data.writeInt(field_146042_b != null ? field_146042_b.getEntityId() : 0);
 	}
 	
 	public void readSpawnData(ByteBuf data) {
