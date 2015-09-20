@@ -21,6 +21,6 @@ public class BaseBlock extends Block {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-	    blockIcon = iconRegister.registerIcon(getUnwrappedName());
+	    blockIcon = iconRegister.registerIcon(textureName);
 	}
 }

@@ -26,7 +26,8 @@ item.bait_4.name=Meat
 item.bait_5.name=Pasta
 item.bait_6.name=Boiles
 item.bait_7.name=Peas
-item.bait_8.name=Cheese
+item.bait_8.name=Corn
+item.bait_9.name=Cheese
 
 item.hook.name=Hook
 item.line.name=Fishing line
@@ -35,3 +36,9 @@ item.rod.name=Fishing rod
 
 item.flour.name=Flour
 item.pasta.name=Pasta
+
+item.seeds.corn.name=Corn seeds
+item.seeds.pea.name=Pea seeds
+
+tile.crops.corn.name=Corn
+tile.crops.pea.name=Peas

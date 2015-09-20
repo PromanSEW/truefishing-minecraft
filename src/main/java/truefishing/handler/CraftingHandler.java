@@ -44,7 +44,7 @@ public class CraftingHandler {
 		GameRegistry.addShapelessRecipe(output, 
 				Items.wheat_seeds, Items.sugar, TrueFishingItems.flour, Items.egg);
 		// Cheese
-		output = new ItemStack(TrueFishingItems.bait, 1, 8);
+		output = new ItemStack(TrueFishingItems.bait, 1, 9);
 		GameRegistry.addShapelessRecipe(output, Items.milk_bucket);
 		// Hook, fishing line, reel, fishing rod
 		GameRegistry.addRecipe(new ItemStack(TrueFishingItems.hook, 8), 

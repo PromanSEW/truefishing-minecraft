@@ -16,7 +16,7 @@ import truefishing.TrueFishing;
 
 public class ItemBait extends InventoryItem {
 	
-	public static final int COUNT = 9;
+	public static final int COUNT = 10;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon icons[];
@@ -31,7 +31,8 @@ public class ItemBait extends InventoryItem {
 	public int getMaxItemUseDuration(ItemStack stack) {
 		switch(stack.getItemDamage()) {
 		case 7: // Peas
-		case 8: // Cheese
+		case 8: // Corn
+		case 9: // Cheese
 			return 32;
 		} return 0;
 	}
@@ -39,24 +40,26 @@ public class ItemBait extends InventoryItem {
 	public EnumAction getItemUseAction(ItemStack stack) {
 		switch(stack.getItemDamage()) {
 		case 7: // Peas
-		case 8: // Cheese
+		case 8: // Corn
+		case 9: // Cheese
 			return EnumAction.eat;
-		default: return EnumAction.none;
-		}
+		} return EnumAction.none;
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		switch(stack.getItemDamage()) {
 		case 7: // Peas
-		case 8: // Cheese
+		case 8: // Corn
+		case 9: // Cheese
 			if(player.canEat(false)) player.setItemInUse(stack, getMaxItemUseDuration(stack));
 		} return stack;
 	}
 	
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		switch(stack.getItemDamage()) {
-		case 7: return onFoodEaten(3, 0.8f, stack, world, player); // Peas
-		case 8: return onFoodEaten(2, 0.2f, stack, world, player); // Cheese
+		case 7: return onFoodEaten(2, 0.5f, stack, world, player); // Peas
+		case 8: return onFoodEaten(1, 0.2f, stack, world, player); // Corn
+		case 9: return onFoodEaten(3, 0.8f, stack, world, player); // Cheese
 		} return stack;
 	}
 	
