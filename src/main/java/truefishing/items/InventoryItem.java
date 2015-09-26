@@ -1,5 +1,8 @@
 package truefishing.items;
 
 public class InventoryItem extends BaseItem {
-	public InventoryItem(String name) { super(name); }
+	public InventoryItem(String name) {
+		super(name);
+		setMaxDamage(100);
+	}
 }

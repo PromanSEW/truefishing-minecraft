@@ -23,6 +23,7 @@ public class ItemBait extends InventoryItem {
 	
 	public ItemBait() {
 		super("bait");
+		setMaxDamage(0);
 		setHasSubtypes(true);
 	}
 	
@@ -71,10 +72,7 @@ public class ItemBait extends InventoryItem {
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int meta) {
-		if(meta > COUNT-1) meta = 0;
-        return icons[meta];
-    }
+	public IIcon getIconFromDamage(int meta) { if(meta > COUNT-1) meta = 0; return icons[meta]; }
 	
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"rawtypes", "unchecked"})
