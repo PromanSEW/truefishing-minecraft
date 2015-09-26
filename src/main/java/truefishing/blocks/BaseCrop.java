@@ -6,48 +6,38 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.common.EnumPlantType;
+import truefishing.TrueFishing;
 import truefishing.items.BaseSeeds;
 
-public class BaseCrop extends BaseBlock {
+public class BaseCrop extends BlockCrops {
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon[] icons = new IIcon[2];
 	private BaseSeeds seeds;
 	
 	public BaseCrop(String name) {
-		super("crops." + name, Material.plants);
+		super();
 		setBlockName("crops." + name);
-		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F , 1.5F, 1.0F);
-		setTickRandomly(true);
+		setCreativeTab(TrueFishing.creativeTab);
 	}
 	
 	public BaseCrop setSeeds(BaseSeeds seeds) { this.seeds = seeds; return this; }
 	
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		return null;
-	}
-	
 	public int damageDropped(int metadata) { return metadata; }
 	
-	public int getRenderType() { return 6; }
-	
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		if(meta > 1) meta = 0;
-	    return icons[meta];
-	}
+	public IIcon getIcon(int side, int meta) { if(meta > 1) meta = 0; return icons[meta]; }
 	
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"rawtypes", "unchecked"})
@@ -55,26 +45,14 @@ public class BaseCrop extends BaseBlock {
 		for(int i=0; i < 2; i++) list.add(new ItemStack(item, 1, i));
 	}
 	
-	public boolean isOpaqueCube() { return false; }
+	@SideOnly(Side.CLIENT)
+    public Item getItem(World world, int x, int y, int z) { return seeds; }
 	
 	public void updateTick(World world, int x, int y, int z, Random random) {
 		if(world.getBlockMetadata(x, y, z) == 1) return;
 		if(world.getBlockLightValue(x, y + 1, z) < 9) return;
 		if(random.nextInt(isFertile(world, x, y - 1, z) ? 12 : 25) != 0) return;
 		world.setBlock(x, y, z, this, 1, 2);
-	}
-	
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(!canBlockStay(world, x, y, z)) {
-			dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlockMetadataWithNotify(x, y, z, 1, 0);
-		}
-	}
-	
-	public boolean canBlockStay(World world, int x, int y, int z) {
-		Block soil = world.getBlock(x, y - 1, z);
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
-				(soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, seeds));
 	}
 	
 	public Item getItemDropped(int metadata, Random rand, int par3) { return seeds; }
@@ -87,6 +65,14 @@ public class BaseCrop extends BaseBlock {
 		ArrayList<ItemStack> items = new ArrayList<ItemStack>();
 		items.add(new ItemStack(seeds));
 		return items;
+	}
+	
+	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) { return EnumPlantType.Crop; }
+	
+	public void func_149863_m(World world, int x, int y, int z) { world.setBlockMetadataWithNotify(x, y, z, 1, 2); }
+	
+	public boolean func_149851_a(World world, int x, int y, int z, boolean p_149851_5_) {
+		return world.getBlockMetadata(x, y, z) != 1;
 	}
 	
 	@SideOnly(Side.CLIENT)
