@@ -52,7 +52,7 @@ public class ItemBait extends InventoryItem {
 		case 7: // Peas
 		case 8: // Corn
 		case 9: // Cheese
-			if(player.canEat(false)) player.setItemInUse(stack, getMaxItemUseDuration(stack));
+			if (player.canEat(false)) player.setItemInUse(stack, getMaxItemUseDuration(stack));
 		} return stack;
 	}
 	
@@ -72,12 +72,12 @@ public class ItemBait extends InventoryItem {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int meta) { if(meta > COUNT-1) meta = 0; return icons[meta]; }
+	public IIcon getIconFromDamage(int meta) { if (meta > COUNT-1) meta = 0; return icons[meta]; }
 	
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for(int i=0; i < COUNT; i++) list.add(new ItemStack(item, 1, i));
+		for (int i=0; i < COUNT; i++) list.add(new ItemStack(item, 1, i));
 	}
 	
 	public String getUnlocalizedName(ItemStack stack) {
@@ -87,7 +87,7 @@ public class ItemBait extends InventoryItem {
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
 		icons = new IIcon[COUNT];
-		for(int i=0; i < COUNT; ++i) {
+		for (int i=0; i < COUNT; ++i) {
 			icons[i] = reg.registerIcon(TrueFishing.RES_PREFIX + "baits/" + getUnwrappedName() + "_" + i);
 		}
 	}

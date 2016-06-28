@@ -37,21 +37,21 @@ public class BaseCrop extends BlockCrops {
 	public int damageDropped(int metadata) { return metadata; }
 	
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) { if(meta > 1) meta = 0; return icons[meta]; }
+	public IIcon getIcon(int side, int meta) { if (meta > 1) meta = 0; return icons[meta]; }
 	
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for(int i=0; i < 2; i++) list.add(new ItemStack(item, 1, i));
+		for (int i=0; i < 2; i++) list.add(new ItemStack(item, 1, i));
 	}
 	
 	@SideOnly(Side.CLIENT)
     public Item getItem(World world, int x, int y, int z) { return seeds; }
 	
 	public void updateTick(World world, int x, int y, int z, Random random) {
-		if(world.getBlockMetadata(x, y, z) == 1) return;
-		if(world.getBlockLightValue(x, y + 1, z) < 9) return;
-		if(random.nextInt(isFertile(world, x, y - 1, z) ? 12 : 25) != 0) return;
+		if (world.getBlockMetadata(x, y, z) == 1) return;
+		if (world.getBlockLightValue(x, y + 1, z) < 9) return;
+		if (random.nextInt(isFertile(world, x, y - 1, z) ? 12 : 25) != 0) return;
 		world.setBlock(x, y, z, this, 1, 2);
 	}
 	
@@ -77,6 +77,6 @@ public class BaseCrop extends BlockCrops {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
-		for(int i=0; i < 2; i++) icons[i] = reg.registerIcon(textureName + "_" + i);
+		for (int i=0; i < 2; i++) icons[i] = reg.registerIcon(textureName + "_" + i);
 	}
 }

@@ -1,12 +1,12 @@
 package truefishing;
 
-import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import truefishing.blocks.TrueFishingBlocks;
-import truefishing.entity.EntityFishingHook;
 import truefishing.handler.CraftingHandler;
 import truefishing.handler.DropHandler;
 import truefishing.handler.GUIHandler;
@@ -25,8 +25,6 @@ public class CommonProxy {
 		MinecraftForge.addGrassSeed(new ItemStack(TrueFishingItems.cornseeds), 10);
 		MinecraftForge.addGrassSeed(new ItemStack(TrueFishingItems.peaseeds), 10);
 		NetworkRegistry.INSTANCE.registerGuiHandler(TrueFishing.instance, new GUIHandler());
-		EntityRegistry.registerModEntity(EntityFishingHook.class, "True Fishing Hook", 
-				EntityRegistry.findGlobalUniqueEntityId(), TrueFishing.instance, 75, 1, true);
 	}
 	
 	public void postInit(FMLPostInitializationEvent e) {

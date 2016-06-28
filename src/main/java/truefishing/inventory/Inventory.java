@@ -17,7 +17,7 @@ public class Inventory implements IInventory {
 	
 	public Inventory(ItemStack stack) {
 		uniqueID = "";
-		if(!stack.hasTagCompound()) {
+		if (!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
 			uniqueID = UUID.randomUUID().toString();
 		}
@@ -30,10 +30,10 @@ public class Inventory implements IInventory {
 	
 	public ItemStack decrStackSize(int slot, int amount) {
 		ItemStack stack = getStackInSlot(slot);
-		if(stack != null) {
-			if(stack.stackSize > amount) {
+		if (stack != null) {
+			if (stack.stackSize > amount) {
 				stack = stack.splitStack(amount);
-				if(stack.stackSize == 0) setInventorySlotContents(slot, null);
+				if (stack.stackSize == 0) setInventorySlotContents(slot, null);
 			} else setInventorySlotContents(slot, null);
 			markDirty();
 		} return stack;
@@ -41,13 +41,13 @@ public class Inventory implements IInventory {
 	
 	public ItemStack getStackInSlotOnClosing(int slot) {
 		ItemStack stack = getStackInSlot(slot);
-		if(stack != null) setInventorySlotContents(slot, null);
+		if (stack != null) setInventorySlotContents(slot, null);
 		return stack;
 	}
 	
 	public void setInventorySlotContents(int slot, ItemStack stack) {
 		inv[slot] = stack;
-		if(stack != null && stack.stackSize > getInventoryStackLimit()) {
+		if (stack != null && stack.stackSize > getInventoryStackLimit()) {
 			stack.stackSize = this.getInventoryStackLimit();
 		}
 		markDirty();
@@ -60,8 +60,8 @@ public class Inventory implements IInventory {
 	public int getInventoryStackLimit() { return 1; }
 	
 	public void markDirty() {
-		for(int i=0; i < getSizeInventory(); ++i) {
-			if(getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {
+		for (int i=0; i < getSizeInventory(); ++i) {
+			if (getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {
 				setInventorySlotContents(i, null);
 			}
 		}
@@ -78,15 +78,15 @@ public class Inventory implements IInventory {
 	}
 		
 	public void readFromNBT(NBTTagCompound compound) {
-		if(uniqueID.equals("")) {
+		if (uniqueID.equals("")) {
 			uniqueID = compound.getString("uniqueID");
-			if(uniqueID.equals("")) uniqueID = UUID.randomUUID().toString();
+			if (uniqueID.equals("")) uniqueID = UUID.randomUUID().toString();
 		}
 		NBTTagList items = compound.getTagList("ItemInventory", compound.getId());
-		for(int i=0; i < items.tagCount(); ++i) {
+		for (int i=0; i < items.tagCount(); ++i) {
 			NBTTagCompound item = items.getCompoundTagAt(i);
 			byte slot = item.getByte("Slot");
-			if(slot >= 0 && slot < getSizeInventory()) {
+			if (slot >= 0 && slot < getSizeInventory()) {
 				setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(item));
 			}
 		}
@@ -94,8 +94,8 @@ public class Inventory implements IInventory {
 	
 	public void writeToNBT(NBTTagCompound compound) {
 		NBTTagList list = new NBTTagList();
-		for(int i=0; i < getSizeInventory(); ++i) {
-			if(getStackInSlot(i) != null) {
+		for (int i=0; i < getSizeInventory(); ++i) {
+			if (getStackInSlot(i) != null) {
 				NBTTagCompound compound1 = new NBTTagCompound();
 				compound1.setInteger("Slot", i);
 				getStackInSlot(i).writeToNBT(compound1);

@@ -27,7 +27,7 @@ public class CraftingHandler {
 		// Live bait
 		input = new ItemStack(TrueFishingItems.fishRaw);
 		output = new ItemStack(TrueFishingItems.bait, 1, 3);
-		for(int i=0; i < ItemFish.COUNT; i++) {
+		for (int i=0; i < ItemFish.COUNT; i++) {
 			input.setItemDamage(i);
 			GameRegistry.addShapelessRecipe(output, input);
 		}
@@ -67,7 +67,7 @@ public class CraftingHandler {
 		// Smelting fishes;
 		input = new ItemStack(TrueFishingItems.fishRaw);
 		output = new ItemStack(TrueFishingItems.fish);
-		for(int i=0; i < ItemFish.COUNT; i++) {
+		for (int i=0; i < ItemFish.COUNT; i++) {
 			input.setItemDamage(i);
 			output.setItemDamage(i);
 			GameRegistry.addSmelting(input, output, 0.1f);

@@ -43,7 +43,7 @@ public class ItemFish extends ItemFood {
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for(int i=0; i < COUNT; i++) list.add(new ItemStack(item, 1, i));
+		for (int i=0; i < COUNT; i++) list.add(new ItemStack(item, 1, i));
 	}
 	
 	/** @return <s>item.</s>unlocalizedName */
@@ -61,12 +61,12 @@ public class ItemFish extends ItemFood {
 	}
 	
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		if(!raw) super.onEaten(stack, world, player);
+		if (!raw) super.onEaten(stack, world, player);
 		return stack;
     }
 	
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-		if(poison) player.addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3));
+		if (poison) player.addPotionEffect(new PotionEffect(Potion.poison.id, 1200, 3));
     }
 	
     public int getMaxItemUseDuration(ItemStack stack) { return raw ? 0 : 32; }
